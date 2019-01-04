@@ -18,9 +18,9 @@ from keras import backend as K
 
 
 
+data_path = "/usr/src/app/data"
 
-
-tokenizer = load(open('/home/mayank/Desktop/NeuralNetwork/Image Captioning/tokenizer.pkl', 'rb'))
+tokenizer = load(open(data_path+"tokenizer.pkl", 'rb'))
 print("tokenizer loaded")
 
 
@@ -104,12 +104,12 @@ def predict(image):
 
 
 		# load json and create model
-	json_file = open('/home/mayank/Desktop/NeuralNetwork/Image Captioning/very_model.json', 'r')
+	json_file = open(data_path+"/very_model.json", 'r')
 	loaded_model_json = json_file.read()
 	json_file.close()
 	loaded_model = model_from_json(loaded_model_json)
 	# load weights into new model
-	weights = '/home/mayank/Desktop/NeuralNetwork/Image Captioning/predictions/training2/model_8.h5'
+	weights = data_path+"/model_8.h5"
 	loaded_model.load_weights(weights)
 	print("Loaded model from disk")
 
